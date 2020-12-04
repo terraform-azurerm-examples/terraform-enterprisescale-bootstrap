@@ -1,0 +1,1 @@
+azurerm_location = "westeurope"
