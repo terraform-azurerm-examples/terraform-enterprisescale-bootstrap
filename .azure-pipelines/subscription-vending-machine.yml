@@ -1,7 +1,7 @@
 # Subscription vending machine
 #
-# * Identity running the pipeline needs permissions to create subscriptions
-# * Identity running the pipeline needs DevOps permissions to create PRs
+# * Identity stored in KV needs permissions to create subscriptions
+# * Build agent needs Azure DevOps permissions to create PRs
 #
 # Needs runtime variables:
 # - managementGroupId

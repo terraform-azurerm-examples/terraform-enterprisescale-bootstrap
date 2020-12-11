@@ -1,9 +1,10 @@
 FROM ubuntu:focal
 
 # Set versions for all downloaded tools
+ARG AZDO_BUILD_AGENT_VERSION=2.179.0
 ARG TERRAFORM_VERSION=0.14.0
-ARG TFLINT_VERSION=0.21.0
 ARG TFLINT_AZURE_VERSION=0.6.0
+ARG TFLINT_VERSION=0.21.0
 
 # To build without user input
 ENV DEBIAN_FRONTEND=noninteractive
@@ -12,14 +13,20 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
     && apt-get upgrade -y --no-install-recommends \
     && apt-get install -y --no-install-recommends \
-    software-properties-common \
-    gnupg \
     apt-transport-https \
-    lsb-release \
     ca-certificates \
-    jq \
     curl \
     git \
+    gnupg \
+    iputils-ping \
+    jq \
+    libcurl4 \
+    libicu66 \
+    libssl1.0 \
+    libunwind8 \
+    lsb-release \
+    netcat \
+    software-properties-common \
     unzip
 
 # Install Azure CLI & extensions
@@ -52,5 +59,9 @@ RUN rm -rf /tmp/docker-downloads
 # change /bin/sh symlink from dash (default in ubuntu:focal) to bash
 RUN rm -f /bin/sh && ln -s bash /bin/sh
 
-# Set the path and other runtime env vars
-ENV DEBIAN_FRONTEND=interactive
+WORKDIR /azp
+
+COPY ./start.sh .
+RUN chmod +x start.sh
+
+CMD ["./start.sh"]
