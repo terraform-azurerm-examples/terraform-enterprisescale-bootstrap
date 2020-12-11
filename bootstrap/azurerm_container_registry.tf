@@ -5,3 +5,10 @@ resource "azurerm_container_registry" "tfbuildagents" {
   sku                      = "Standard"
   admin_enabled            = false
 }
+
+resource "null_resource" "azure_container_registry_build_task" {
+  depends_on = [ azurerm_container_registry.tfbuildagents ]
+  provisioner "local-exec" {
+    command = "az acr build"
+  }
+}
