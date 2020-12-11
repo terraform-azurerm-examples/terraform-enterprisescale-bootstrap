@@ -6,10 +6,18 @@ terraform {
     }
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = ">= 2.38.0"
+      version = ">= 2.40.0"
+    }
+    azuread = {
+      source  = "hashicorp/azuread"
+      version = ">= 1.1.0"
     }
     random = {
       source  = "hashicorp/random"
+      version = ">= 3.0.0"
+    }
+    null = {
+      source  = "hashicorp/null"
       version = ">= 3.0.0"
     }
   }
