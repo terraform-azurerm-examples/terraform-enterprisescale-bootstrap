@@ -32,9 +32,9 @@ stages:
             displayName: Build and push
             inputs:
               command: buildAndPush
-              repository: $(imageRepository)
-              containerRegistry: $(containerRegistry)
+              repository: eslz/buildagent
+              containerRegistry: azure-cr-mgmt
               addPipelineData: true
-              Dockerfile: $(dockerFile)
+              Dockerfile: ./buildagent/Dockerfile
               tags: |
                 $(Build.SourceBranchName)
