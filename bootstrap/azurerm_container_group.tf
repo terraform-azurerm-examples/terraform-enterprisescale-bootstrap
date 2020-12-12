@@ -31,8 +31,9 @@ resource "azurerm_container_group" "buildagent" {
     }
 
     environment_variables = {
-      "AZP_URL"  = var.azuredevops_url
-      "AZP_POOL" = "terraform"
+      "AZP_URL"        = var.azuredevops_url
+      "AZP_POOL"       = "terraform"
+      "AZP_AGENT_NAME" = "aci"
     }
 
     secure_environment_variables = {
