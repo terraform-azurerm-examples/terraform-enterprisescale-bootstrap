@@ -5,10 +5,10 @@
 
 trigger: none
 
-pool: 
+pool: terraform
 
 variables:
-  environment: dev
+  environment: prod
   TF_IN_AUTOMATION: 1
   ARM_TENANT_ID: 
   keyvaultName: 
@@ -21,7 +21,7 @@ steps:
     inputs:
       azureSubscription: 
       KeyVaultName: $(keyvaultName)
-      SecretsFilter: 'azdevoptpat,ARMCLIENTSECRET,ARMCLIENTID,ARMSUBSCRIPTIONID'
+      SecretsFilter: 'azdevopspat,ARMCLIENTSECRET,ARMCLIENTID,ARMSUBSCRIPTIONID'
       RunAsPreJob: false
 
   - task: CmdLine@2
