@@ -1,0 +1,40 @@
+# Azure DevOps Pipeline to build the Docker image for the Terraform build agents
+
+trigger:
+  branches:
+    include:
+      - main
+  batch: false
+
+schedules:
+  - cron: "0 0 * * *"
+    displayName: Daily security patch update at midnight UTC
+    branches:
+      include:
+        - main
+    always: true
+
+stages:
+  - stage: acr
+    displayName: Image build and push to ACR
+    variables:
+      imageRepository: eslz/buildagent
+      containerRegistry: azure-cr-mgmt
+      dockerFile: ./buildagent/Dockerfile
+    jobs:
+      - job: imagebuildandpush
+        displayName: Image build and push to ACR
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - checkout: self
+          - task: Docker@2
+            displayName: Build and push
+            inputs:
+              command: buildAndPush
+              repository: $(imageRepository)
+              containerRegistry: $(containerRegistry)
+              addPipelineData: true
+              Dockerfile: $(dockerFile)
+              tags: |
+                $(Build.SourceBranchName)
