@@ -1,3 +1,4 @@
+# Storage account for the Terraform backend
 resource "azurerm_storage_account" "backend" {
   name                      = "${var.azurerm_storage_account_prefix}${random_id.azurerm_random_id.hex}"
   resource_group_name       = azurerm_resource_group.terraform.name

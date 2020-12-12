@@ -1,3 +1,4 @@
+# Storage container for the backend
 resource "azurerm_storage_container" "backend" {
   name                  = "tfbackend"
   storage_account_name  = azurerm_storage_account.backend.name

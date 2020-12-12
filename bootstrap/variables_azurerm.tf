@@ -18,12 +18,12 @@ variable "azurerm_build_container_image_name" {
   default = "eslz/buildagent:main"
 }
 
-variable "azurerm_container_group_prefix" {
+variable "azurerm_container_group_name" {
   type    = string
   default = "estfbuildagent"
 }
 
-variable "azurerm_user_assigned_identity_aci_prefix" {
+variable "azurerm_user_assigned_identity_aci_name" {
   type    = string
   default = "eslzaci"
 }

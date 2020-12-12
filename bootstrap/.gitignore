@@ -1,0 +1,2 @@
+# Ignore buildagent directory - required for testing bootstrap process
+buildagent/**

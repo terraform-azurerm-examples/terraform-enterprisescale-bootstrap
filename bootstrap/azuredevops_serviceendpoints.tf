@@ -1,7 +1,5 @@
-# Disabled as we cannot currently create MSI based endpoints with
-# the azuredevops provider
-# https://github.com/microsoft/terraform-provider-azuredevops/issues/101
-
+# Service connection to Azure sub using automatically managed SPN
+# Used by the the build agent pipeline to restart the ACI instance
 resource "azuredevops_serviceendpoint_azurerm" "azurerm" {
   project_id                = azuredevops_project.eslz.id
   service_endpoint_name     = "azure-sub-mgmt"
@@ -11,6 +9,8 @@ resource "azuredevops_serviceendpoint_azurerm" "azurerm" {
   azurerm_subscription_name = data.azurerm_subscription.current.display_name
 }
 
+# Service connection to the Azure Container Registry
+# Used by the build agent pipeline to push images
 resource "azuredevops_serviceendpoint_azurecr" "azurecr" {
   project_id                = azuredevops_project.eslz.id
   service_endpoint_name     = "azure-cr-mgmt"

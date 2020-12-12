@@ -1,3 +1,5 @@
+# Role assignment using user assigned identity to allow the ACI to read secrets
+# Currently using Key Vault Azure RBAC - in preview
 resource "azurerm_role_assignment" "key_vault_aci" {
   scope                = azurerm_key_vault.terraform.id
   role_definition_name = "Key Vault Secrets User (preview)"

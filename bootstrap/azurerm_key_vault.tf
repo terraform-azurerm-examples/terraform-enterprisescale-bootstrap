@@ -1,3 +1,4 @@
+# Key Vault for pipeline secrets
 resource "azurerm_key_vault" "terraform" {
   name                        = "${var.azurerm_key_vault_prefix}${random_id.azurerm_random_id.hex}"
   location                    = azurerm_resource_group.terraform.location
