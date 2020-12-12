@@ -15,15 +15,14 @@ schedules:
     always: true
 
 variables:
+  containerRegistry: azure-cr-mgmt
+  dockerFile: ./buildagent/Dockerfile
+  imageRepository: eslz/buildagent
   skipComponentGovernanceDetection: 'true'
 
 stages:
   - stage: acr
     displayName: Image build and push to ACR
-    variables:
-      imageRepository: eslz/buildagent
-      containerRegistry: azure-cr-mgmt
-      dockerFile: ./buildagent/Dockerfile
     jobs:
       - job: imagebuildandpush
         displayName: Image build and push to ACR
