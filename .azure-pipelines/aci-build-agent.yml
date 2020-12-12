@@ -14,6 +14,9 @@ schedules:
         - main
     always: true
 
+variables:
+  skipComponentGovernanceDetection: 'true'
+
 stages:
   - stage: acr
     displayName: Image build and push to ACR
@@ -25,16 +28,17 @@ stages:
       - job: imagebuildandpush
         displayName: Image build and push to ACR
         pool:
-          vmImage: ubuntu-latest
+          name: Azure Pipelines
+          vmImage: ubuntu-20.04
         steps:
           - checkout: self
           - task: Docker@2
             displayName: Build and push
             inputs:
               command: buildAndPush
-              repository: eslz/buildagent
-              containerRegistry: azure-cr-mgmt
+              repository: $(imageRepository)
+              containerRegistry: $(containerRegistry)
               addPipelineData: true
-              Dockerfile: ./buildagent/Dockerfile
+              Dockerfile: $(dockerFile)
               tags: |
                 $(Build.SourceBranchName)
