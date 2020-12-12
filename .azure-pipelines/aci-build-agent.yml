@@ -15,9 +15,12 @@ schedules:
     always: true
 
 variables:
+  azureSubscription: azure-sub-mgmt
+  containerGroup: estfbuildagent1670f3af
   containerRegistry: azure-cr-mgmt
   dockerFile: ./buildagent/Dockerfile
   imageRepository: eslz/buildagent
+  resourceGroup: estf
   skipComponentGovernanceDetection: 'true'
 
 stages:
@@ -41,3 +44,17 @@ stages:
               Dockerfile: $(dockerFile)
               tags: |
                 $(Build.SourceBranchName)
+      - job: restartaci
+        displayName: restart containers
+        dependsOn: imagebuildandpush
+        pool:
+          name: Azure Pipelines
+          vmImage: ubuntu-20.04
+        steps:
+          - task: AzureCLI@2
+            displayName: Restart containers
+            inputs:
+              azureSubscription: $(azureSubscription)
+              scriptType: bash
+              inlineScript: |
+                az container restart --name $(containerGroup) --resource-group $(resourceGroup)
