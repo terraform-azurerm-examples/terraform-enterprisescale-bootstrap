@@ -10,8 +10,8 @@ trigger:
   batch: false
 
 schedules:
-  - cron: "0 0 * * *"
-    displayName: Daily security patch update at midnight UTC
+  - cron: "0 0 * * 1"
+    displayName: Weekly security patch update every Monday at midnight UTC
     branches:
       include:
         - main
