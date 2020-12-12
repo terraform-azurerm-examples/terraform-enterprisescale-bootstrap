@@ -54,10 +54,12 @@ stages:
           name: Azure Pipelines
           vmImage: ubuntu-20.04
         steps:
+          - checkout: none
           - task: AzureCLI@2
             displayName: Restart containers
             inputs:
               azureSubscription: $(azureSubscription)
               scriptType: bash
+              scriptLocation: inlineScript
               inlineScript: |
                 az container restart --name $(containerGroup) --resource-group $(resourceGroup)
