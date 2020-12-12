@@ -6,7 +6,7 @@
 trigger:
   branches:
     include: # Pipeline will only trigger for dev branch
-    - dev
+    - prod
   paths:
     exclude: # This pipeline will not trigger for changes to below files and folders 
     - .azure-pipelines/*
