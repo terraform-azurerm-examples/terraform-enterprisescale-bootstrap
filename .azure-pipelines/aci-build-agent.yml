@@ -4,6 +4,9 @@ trigger:
   branches:
     include:
       - main
+  paths:
+    include:
+      - buildagent/*
   batch: false
 
 schedules:
@@ -45,7 +48,7 @@ stages:
               tags: |
                 $(Build.SourceBranchName)
       - job: restartaci
-        displayName: restart containers
+        displayName: Restart containers
         dependsOn: imagebuildandpush
         pool:
           name: Azure Pipelines
