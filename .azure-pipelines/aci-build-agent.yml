@@ -49,6 +49,7 @@ stages:
                 $(Build.SourceBranchName)
       - job: restartaci
         displayName: Restart containers
+        condition: eq(variables['Build.SourceBranchName'], 'main')
         dependsOn: imagebuildandpush
         pool:
           name: Azure Pipelines
