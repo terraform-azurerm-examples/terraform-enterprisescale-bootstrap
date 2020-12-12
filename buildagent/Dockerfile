@@ -34,7 +34,8 @@ RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash \
     && az extension add --system --name account \
     && az extension add --system --name alias
 
-# Install Terraform latest
+# Install Terraform latest and set max parallelism for optimised deployment
+ENV TFE_PARALLELISM=256
 RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - \
     && apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
     && apt-get update && apt-get install terraform=${TERRAFORM_VERSION}
