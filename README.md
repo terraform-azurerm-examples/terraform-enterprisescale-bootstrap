@@ -35,9 +35,9 @@ You will also need:
 
 ```bash
 cd bootstrap
-export AZDO_ORG_SERVICE_URL=https://dev.azure.com/myorgname
-export AZDO_PERSONAL_ACCESS_TOKEN=<myPAT>
-export TF_VAR_azuredevops_url=$AZDO_ORG_SERVICE_URL # we need this within Terraform as a var so am defining twice, don't hate me
+export AZDO_ORG_SERVICE_URL=https://dev.azure.com/myorgname # This allows the azuredevops provider to work properly
+export AZDO_PERSONAL_ACCESS_TOKEN=<myPAT>                   # This allows the azuredevops provider to work properly
+export TF_VAR_azuredevops_url=$AZDO_ORG_SERVICE_URL         # we need this within Terraform as a var so am defining twice, don't hate me
 export TF_VAR_azuredevops_token=$AZDO_PERSONAL_ACCESS_TOKEN # we need this within Terraform as a var so am defining twice, don't hate me
 export TFE_PARALLELISM=256
 
