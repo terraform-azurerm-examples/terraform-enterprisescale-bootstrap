@@ -37,8 +37,8 @@ You will also need:
 cd bootstrap
 export AZDO_ORG_SERVICE_URL=https://dev.azure.com/myorgname
 export AZDO_PERSONAL_ACCESS_TOKEN=<myPAT>
-export TF_VAR_azuredevops_url=$AZDO_ORG_SERVICE_URL
-export TF_VAR_azuredevops_token=$AZDO_PERSONAL_ACCESS_TOKEN
+export TF_VAR_azuredevops_url=$AZDO_ORG_SERVICE_URL # we need this within Terraform as a var so am defining twice, don't hate me
+export TF_VAR_azuredevops_token=$AZDO_PERSONAL_ACCESS_TOKEN # we need this within Terraform as a var so am defining twice, don't hate me
 export TFE_PARALLELISM=256
 
 az login # login with admin user account - must be subscription owner
