@@ -15,6 +15,22 @@ Because scope creep
 
 ## Quick Start
 
+The bootstrap process is intended to be just that, a bootstrap.
+Though it uses Terraform it was never conceived that long term state management would be used to manage Azure DevOps and the build agent infrastructure.
+It has been designed to run interactively to allow rapid commencement of operations.
+
+You will need:
+
+Azure AD account with access to:
+
+- Azure portal, at last owner on a subscription (this will become your 'management' subscription in ES terms)
+- Azure DevOps, currently you need to be able to create projects. The ability to use an existing project is a `TODO`
+- Personal Access token (PAT) for Azure DevOps with full access - create this in the AzDo portal
+
+You will also need:
+
+- az cli installed
+
 ```bash
 cd bootstrap
 export AZDO_ORG_SERVICE_URL=https://dev.azure.com/myorgname
