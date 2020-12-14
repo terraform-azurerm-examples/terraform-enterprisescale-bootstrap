@@ -30,6 +30,8 @@ Azure AD account with access to:
 You will also need:
 
 - az cli installed
+- Terraform >= 0.14.0 available and in the $PATH
+- A `bash` shell
 
 ```bash
 cd bootstrap
