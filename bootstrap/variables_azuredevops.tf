@@ -35,7 +35,12 @@ variable "azuredevops_project_work_item_template" {
 
 # Source location for repo import
 # must have trailing slash '/'
-variable "azuredevops_repo_source_url" {
+variable "build_agent_repo_source_url" {
   type    = string
-  default = "https://dev.azure.com/dctteam/Subscription%20Vending%20Machine/_git/"
+  default = "https://github.com/terraform-azurerm-examples/terraform-azuredevops-buildagent.git"
+}
+
+variable "eslz_source_repo_url" {
+  type    = string
+  default = "https://github.com/terraform-azurerm-examples/terraform-enterprisescale-starter.git"
 }
