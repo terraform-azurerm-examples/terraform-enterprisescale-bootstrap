@@ -9,10 +9,6 @@ This project is comprised of three repos that together work to provide the follo
 3. Another Git repo to store the Docker configuration of the Terraform CI/CD build agents **90% complete**
 3. Azure Pipelines providing a subscription vending machine and CI/CD for Terraform **50% complete**
 
-## Why is this project called 'Subscription Vending Machine' when it does more than that?
-
-Because scope creep
-
 ## Quick Start
 
 The bootstrap process is intended to be just that, a bootstrap.
