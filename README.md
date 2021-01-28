@@ -9,6 +9,11 @@ This project is comprised of three repos that together work to provide the follo
 3. Another Git repo to store the Docker configuration of the Terraform CI/CD build agents **90% complete**
 3. Azure Pipelines providing a subscription vending machine and CI/CD for Terraform **50% complete**
 
+## Repos Used
+
+* https://github.com/terraform-azurerm-examples/terraform-azuredevops-buildagent
+* https://github.com/terraform-azurerm-examples/terraform-enterprisescale-starter
+
 ## Quick Start
 
 The bootstrap process is intended to be just that, a bootstrap.
