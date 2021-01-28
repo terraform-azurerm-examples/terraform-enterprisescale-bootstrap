@@ -1,7 +1,7 @@
 # Build definition (pipeline) for the ACI CI/CD
-resource "azuredevops_build_definition" "buildagent_cicd" {
+resource "azuredevops_build_definition" "tf_plan_apply_cicd" {
   project_id = azuredevops_project.eslz.id
-  name       = "aci-build-agent"
+  name       = "terraform-plan-apply"
   path       = "\\"
 
   ci_trigger {
@@ -10,8 +10,8 @@ resource "azuredevops_build_definition" "buildagent_cicd" {
 
   repository {
     repo_type   = "TfsGit"
-    repo_id     = azuredevops_git_repository.buildagent.id
+    repo_id     = azuredevops_git_repository.eslz.id
     branch_name = "refs/heads/main"
-    yml_path    = ".azure-pipelines/aci-build-agent.yml"
+    yml_path    = ".azure-pipelines/tf-plan-apply-prod.yml"
   }
 }

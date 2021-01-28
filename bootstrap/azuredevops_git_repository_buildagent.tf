@@ -7,6 +7,6 @@ resource "azuredevops_git_repository" "buildagent" {
   initialization {
     init_type   = "Import"
     source_type = "Git"
-    source_url  = "${var.azuredevops_repo_source_url}buildagent"
+    source_url  = var.build_agent_repo_source_url
   }
 }

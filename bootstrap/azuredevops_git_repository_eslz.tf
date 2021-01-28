@@ -6,6 +6,6 @@ resource "azuredevops_git_repository" "eslz" {
   initialization {
     init_type   = "Import"
     source_type = "Git"
-    source_url  = "${var.azuredevops_repo_source_url}eslz"
+    source_url  = var.eslz_source_repo_url
   }
 }
