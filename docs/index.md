@@ -1,37 +1,34 @@
-## Welcome to GitHub Pages
+## Quick Start
 
-You can use the [editor on GitHub](https://github.com/terraform-azurerm-examples/terraform-enterprisescale-bootstrap/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+The bootstrap process is intended to be just that, a bootstrap.
+Though it uses Terraform it was never conceived that long term state management would be used to manage Azure DevOps and the build agent infrastructure.
+It has been designed to run interactively to allow rapid commencement of operations.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+You will need:
 
-### Markdown
+Azure AD account with access to:
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- Azure portal, at last owner on a subscription (this will become your 'management' subscription in ES terms)
+- Azure DevOps, currently you need to be able to create projects. The ability to use an existing project is a `TODO`
+- Personal Access token (PAT) for Azure DevOps with full access - create this in the AzDo portal
 
-```markdown
-Syntax highlighted code block
+You will also need:
 
-# Header 1
-## Header 2
-### Header 3
+- az cli installed
+- Terraform >= 0.14.0 available and in the $PATH
+- A `bash` shell
 
-- Bulleted
-- List
+```bash
+cd bootstrap
+export AZDO_ORG_SERVICE_URL=https://dev.azure.com/myorgname # This allows the azuredevops provider to work properly
+export AZDO_PERSONAL_ACCESS_TOKEN=<myPAT>                   # This allows the azuredevops provider to work properly
+export TF_VAR_azuredevops_url=$AZDO_ORG_SERVICE_URL         # we need this within Terraform as a var so am defining twice, don't hate me
+export TF_VAR_azuredevops_token=$AZDO_PERSONAL_ACCESS_TOKEN # we need this within Terraform as a var so am defining twice, don't hate me
+export TFE_PARALLELISM=256
 
-1. Numbered
-2. List
+az login # login with admin user account - must be subscription owner
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+terraform init
+terraform plan
+terraform apply
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/terraform-azurerm-examples/terraform-enterprisescale-bootstrap/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
