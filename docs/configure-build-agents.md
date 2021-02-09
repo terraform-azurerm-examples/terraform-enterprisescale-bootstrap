@@ -1,5 +1,7 @@
 # Configure Build Agents
 
+[home](index.md)
+
 This is **coming soon**
 
 ## Next Step
