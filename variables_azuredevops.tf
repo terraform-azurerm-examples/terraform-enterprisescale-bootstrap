@@ -4,12 +4,6 @@ variable "azuredevops_url" {
   type = string
 }
 
-# PAT token - set using TF_VAR_azuredevops_token environment variable
-variable "azuredevops_token" {
-  type      = string
-  sensitive = true
-}
-
 # Project name for created project
 variable "azuredevops_project_name" {
   type    = string
