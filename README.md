@@ -11,8 +11,8 @@ This project is comprised of three repos that together work to provide the follo
 
 ## Repos Used
 
-* https://github.com/terraform-azurerm-examples/terraform-azuredevops-buildagent
-* https://github.com/terraform-azurerm-examples/terraform-enterprisescale-starter
+* [terraform-azurerm-examples/terraform-azuredevops-buildagent](https://github.com/terraform-azurerm-examples/terraform-azuredevops-buildagent)
+* [terraform-azurerm-examples/terraform-enterprisescale-starter](https://github.com/terraform-azurerm-examples/terraform-enterprisescale-starter)
 
 ## Docs
 
