@@ -1,10 +1,9 @@
-# Azure DevOps org URL - set using TF_VAR_azuredevops_url environment variable
-# e.g. https://dev.azure.com/myorg
-variable "azuredevops_url" {
-  type = string
+# Project name for created project
+variable "build_agent_environments" {
+  type    = set(string)
+  default = ["prod","canary"]
 }
 
-# Project name for created project
 variable "azuredevops_project_name" {
   type    = string
   default = "Enterprise-Scale-Landing-Zones"

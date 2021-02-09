@@ -1,0 +1,1 @@
+azuredevops_project_name = "eslz-bootstrap-test"
