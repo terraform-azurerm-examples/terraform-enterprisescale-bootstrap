@@ -16,9 +16,8 @@ You will also need:
 - A `bash` shell
 
 ```bash
-cd bootstrap
-export AZDO_ORG_SERVICE_URL=https://dev.azure.com/myorgname # This allows the azuredevops provider to work
-export AZDO_PERSONAL_ACCESS_TOKEN=<myPAT>                   # This allows the azuredevops provider to work
+export AZDO_ORG_SERVICE_URL=https://dev.azure.com/myorgname
+export AZDO_PERSONAL_ACCESS_TOKEN=<myPAT>
 export TFE_PARALLELISM=256
 
 terraform init
