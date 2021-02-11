@@ -1,0 +1,1 @@
+// Created manually as provider does not support MSI based Azure service connections
