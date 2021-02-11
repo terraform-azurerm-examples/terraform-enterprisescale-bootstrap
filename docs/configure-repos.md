@@ -2,7 +2,7 @@
 
 [home](index.md)
 
-* Set branch policy to limit merge types ([issue link](https://github.com/microsoft/terraform-provider-azuredevops/issues/297)):
+* Set branch policy to limit merge types ([issue link](https://github.com/microsoft/terraform-provider-azuredevops/issues/300)):
   * `main` = `squash`
   * `canary` = `rebase & ff`
   * `prod` = `rebase & ff`

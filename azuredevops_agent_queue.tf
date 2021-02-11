@@ -1,4 +1,4 @@
-/* # This creates the ACI build agent queue for the project
+# This creates the ACI build agent queue for the project
 resource "azuredevops_agent_queue" "eslz" {
   for_each      = azuredevops_agent_pool.eslz
   project_id    = azuredevops_project.eslz.id
@@ -13,4 +13,3 @@ resource "azuredevops_resource_authorization" "eslz" {
   type        = "queue"
   authorized  = true
 }
- */
