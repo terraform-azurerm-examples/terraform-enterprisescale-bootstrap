@@ -1,1 +1,0 @@
-azurerm_location = "westeurope"
